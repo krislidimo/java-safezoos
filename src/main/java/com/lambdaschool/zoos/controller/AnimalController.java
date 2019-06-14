@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/animals")
-public class AnimalController
+public class  AnimalController
 {
     @Autowired
     private AnimalService animalService;

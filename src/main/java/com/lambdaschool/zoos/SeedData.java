@@ -28,43 +28,35 @@ public class SeedData implements CommandLineRunner
     public void run(String[] args) throws Exception
     {
         Role r1 = new Role("admin");
-        Role r2 = new Role("user");
-        Role r3 = new Role("zoodata");
-        Role r4 = new Role("animaldata");
-        Role r5 = new Role("mgr");
-
+        Role r2 = new Role("zoodata");
+        Role r3 = new Role("animaldata");
+        Role r4 = new Role("mgr");
 
         ArrayList<UserRoles> admins = new ArrayList<>();
         admins.add(new UserRoles(new User(), r1));
 
+        ArrayList<UserRoles> zooData = new ArrayList<>();
+        zooData.add(new UserRoles(new User(), r2));
 
-        ArrayList<UserRoles> users = new ArrayList<>();
-        users.add(new UserRoles(new User(), r2));
-        users.add(new UserRoles(new User(), r3));
-        users.add(new UserRoles(new User(), r4));
-        users.add(new UserRoles(new User(), r5));
+        ArrayList<UserRoles> animalData = new ArrayList<>();
+        animalData.add(new UserRoles(new User(), r3));
 
+        ArrayList<UserRoles> mgr = new ArrayList<>();
+        mgr.add(new UserRoles(new User(), r4));
 
         rolerepos.save(r1);
         rolerepos.save(r2);
         rolerepos.save(r3);
         rolerepos.save(r4);
-        rolerepos.save(r5);
 
-
-
-        User u1 = new User("admin", "pass!", users);
-        User u2 = new User("zoodata", "pass", admins);
-        User u3 = new User("animaldata", "pass", admins);
-        User u4 = new User("mgr", "pass", admins);
-        User u5 = new User("user", "pass", admins);
-
+        User u1 = new User("admin", "pass", admins);
+        User u2 = new User("zoodata", "pass", zooData);
+        User u3 = new User("animaldata", "pass", animalData);
+        User u4 = new User("mgr", "pass", mgr);
 
         userrepos.save(u1);
         userrepos.save(u2);
         userrepos.save(u3);
         userrepos.save(u4);
-        userrepos.save(u5);
-
     }
 }
